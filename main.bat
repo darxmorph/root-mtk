@@ -36,6 +36,4 @@ goto eof
 call root
 goto eof
 :eof
-rem start cmd /c "title Root your MTK by Henry & echo Eliminando archivos temporales... & cd .. & ping 1.1.1.1 -n 1 -w 1000 >nul & rmdir %~dp0 /s /q"
-rem start cmd /k ping 1.1.1.1 & rd /s /q %~dp0
 exit

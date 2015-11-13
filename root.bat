@@ -1,8 +1,8 @@
 :ask
 >%temp%\yesno.vbs echo WScript.Echo MsgBox("It seems your device isn't rooted" ^& vbCrLf ^& vbCrLf ^& _
-for /f "delims=" %%N in ('cscript //nologo %temp%\yesno.vbs') do set yesno=%%N & del %temp%\yesno.vbs
 >>%temp%\yesno.vbs echo               "Are you sure you want to root your device?","68","Root your MTK by Henry")
-if %yesno%==7 goto exit
+for /f "delims=" %%N in ('cscript //nologo %temp%\yesno.vbs') do set yesno=%%N & del %temp%\yesno.vbs
+if %yesno%==7 goto eof
 if %yesno%==6 goto continue
 goto ask
 :continue
@@ -38,7 +38,7 @@ adb shell chown 0:2000 /system/xbin/su
 echo Running 'chmod 0755 /system/xbin/su'
 adb shell chmod 0755 /system/xbin/su
 
-echo Installing SuperSU as System App1
+echo Installing SuperSU as System App
 adb push SuperSU.apk /system/app/SuperSU.apk
 echo Running 'chown 0:0 /system/app/SuperSU.apk'
 adb shell chown 0:0 /system/app/SuperSU.apk
@@ -47,6 +47,7 @@ adb shell chmod 0644 /system/app/SuperSU.apk
 echo.
 
 echo Starting SU daemon
+rem This will probably hang ADB, but actually I don't have a fix for that
 adb shell /system/xbin/su --daemon
 rem adb shell cd /system/xbin ^&^& busybox nohup su --daemon ^>/dev/null 2^>^&1
 echo.

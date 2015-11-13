@@ -6,9 +6,9 @@ if %yesno%==7 goto exit
 if %yesno%==6 goto continue
 goto ask
 :continue
-call common usbdebinfo
+call common.bat usbdebinfo
 adb shell setprop ro.secure 0
-call common checkuid0
+call common.bat checkuid0
 :main
 echo Now is when things get interesting...
 echo.
@@ -57,7 +57,7 @@ adb shell setprop ro.secure 1
 :end
 echo Killing ADB server...
 adb kill-server
->%temp%\info.vbs echo MsgBox "Done^!" ^& vbCrLf ^& vbCrLf ^& _
+>%temp%\info.vbs echo MsgBox "Done!" ^& vbCrLf ^& vbCrLf ^& _
 >>%temp%\info.vbs echo               "Don't forget to disable USB debugging...","64","Root your MTK by Henry"
 call %temp%\info.vbs & del /f /q %temp%\info.vbs
 :eof
