@@ -27,4 +27,4 @@ It worked! Shell was running as root:
 	uid=0(root) gid=0(root) context=u:r:init_shell:s0
 
 So, if you want to experiment with the basics of the code, go ahead and try it.
-* device used for testing was from LEAGOO brand. I am not affiliated with LEAGOO
+\* device used for testing was from LEAGOO brand. I am not affiliated with LEAGOO
